@@ -1,0 +1,79 @@
+/* LED Latching Switch (has debouncing)*/
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+
+int main(void)
+{
+	// Enable port B & C
+	RCC->AHB1ENR |= (1 << 2);
+	RCC->AHB1ENR |= (1 << 1);
+
+	// Output setup for port C
+	GPIOC->MODER |= (1 << 26);
+	GPIOC->OTYPER &= ~(1 << 13);
+	GPIOC->OSPEEDR |= (1 << 27);
+    GPIOC->PUPDR &= ~( (1 << 27)|(1 << 26) );
+
+    // Port B input setting
+    GPIOB->MODER &= ~( (1 << 2)|(1 << 3) );
+    GPIOB->PUPDR &= ~( (1 << 2)|(1 << 3) );
+
+    GPIOC->BSRR |= (1 << 13);
+
+    volatile char bp = 0;
+
+    // Increment this when button is pressed. If it crosses threshold button is pressed
+    volatile int buttonPressedConfidenceLevelPB1 = 0;
+
+    // Increment this when button is released. If it crosses threshold button is released
+    volatile int buttonReleasedConfidenceLevelPB1 = 0;
+
+    // A threshold level to compare input bit against to avoid debouncing
+    volatile int ConfidenceThreshold = 2000;
+
+  while (1)
+  {
+
+	  if((GPIOB->IDR & (1 << 1)))
+  	  {
+
+		  // If buttonPressedConfidenceLevel > threshold, we know button was pressed and we will toggle LED
+		  if(buttonPressedConfidenceLevelPB1 > ConfidenceThreshold)
+		  {
+			  // Toggling LED on/off using XOR and output data register
+			  GPIOC->ODR ^= (1 << 13);
+			  bp = 1;
+			  buttonPressedConfidenceLevelPB1 = 0;
+		  }
+		  else
+		  {
+			  // Increment buttonPressedConfidenceLevelPB1 every time there is a 1 in IDR
+			  buttonPressedConfidenceLevelPB1++;
+
+			  // Reset buttonReleasedConfidenceLevelPB1 every time there is a 1 in IDR
+			  buttonReleasedConfidenceLevelPB1 = 0;
+		  }
+
+  	  }
+
+
+  }
+
+
+}

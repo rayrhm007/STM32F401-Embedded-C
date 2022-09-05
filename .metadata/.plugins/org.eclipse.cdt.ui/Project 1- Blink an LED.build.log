@@ -1,0 +1,9 @@
+01:12:35 **** Incremental Build of configuration Default for project Project 1- Blink an LED ****
+make all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+PATH=[C:/ST/STM32CubeIDE_1.10.1/STM32CubeIDE//plugins/com.st.stm32cube.ide.jre.win64_2.2.0.202203101208/jre/bin/server;C:/ST/STM32CubeIDE_1.10.1/STM32CubeIDE//plugins/com.st.stm32cube.ide.jre.win64_2.2.0.202203101208/jre/bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Polyspace\R2020a\runtime\win64;C:\Program Files\Polyspace\R2020a\bin;C:\Program Files\Polyspace\R2020a\polyspace\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\msys64\mingw64\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Python\Python310\Scripts\;C:\Python\Python310\;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;;D:\EEE\Embedded Systems\STM32\Projects\Project 1- Blink an LED;]
+
+01:12:35 Build Failed. 1 errors, 0 warnings. (took 43ms)
+

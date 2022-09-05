@@ -1,0 +1,10 @@
+13:26:29 **** Incremental Build of configuration Debug for project Project 2 - Add a Button ****
+make -j16 all 
+arm-none-eabi-size   Project\ 2\ -\ Add\ a\ Button.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1000	     12	   1572	   2584	    a18	Project 2 - Add a Button.elf
+Finished building: default.size.stdout
+ 
+
+13:26:29 Build Finished. 0 errors, 0 warnings. (took 250ms)
+
